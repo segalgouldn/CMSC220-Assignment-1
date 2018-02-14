@@ -28,7 +28,7 @@ The following locations were found for that motif ("LAV"):
 
 Please enter either 1, 2, or 3: 3
 Centroid size: 37804
-Centroid position: -0.000581, -0.000754, 8.1e-05
+Centroid position: 23.065753, -0.07208, 22.827757
 
 Please enter either 1, 2, or 3: exit
 Invalid input; this program will now halt.
