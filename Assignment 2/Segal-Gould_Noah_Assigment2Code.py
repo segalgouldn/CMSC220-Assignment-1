@@ -110,11 +110,14 @@ def main(protein_filename="protein.txt", # Make a default protein filename
                     x = float(line[30:38])
                     y = float(line[38:46])
                     z = float(line[46:54])
+                    xsum += x
+                    ysum += y
+                    zsum += z
                     
             if natoms != 0:
-                centroid_position = str([round(x/natoms, 6), 
-                                         round(y/natoms, 6), 
-                                         round(z/natoms, 6)])[1:-1]
+                centroid_position = str([round(xsum/natoms, 6), 
+                                         round(ysum/natoms, 6), 
+                                         round(zsum/natoms, 6)])[1:-1]
                 print("Centroid size: {0}\nCentroid position: {1}".format(natoms, centroid_position))                
             else:
                 print("No centroid found; returning to initial prompt.")
