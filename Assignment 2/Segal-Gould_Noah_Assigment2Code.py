@@ -103,6 +103,7 @@ def main(protein_filename="protein.txt", # Make a default protein filename
             # What follows in this case is mostly adapted from the centroid code shown in class and posted on Moodle 2
             pdb = pdb_text.split("\n")            
             natoms = 0
+            xsum = ysum = zsum = 0
             
             for line in pdb:
                 if line[:6] == "ATOM  ":
