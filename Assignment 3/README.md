@@ -1,14 +1,4 @@
-### CMSC220 Assignment 1
-The first assignment for CMSC 220: Bioinformatics, which involves using Python to reverse-transcribe DNA.
+### CMSC220 Assignment 3
+The third assignment for CMSC 220: Bioinformatics, which involves using Python to create classes for managing amino acids.
 
 #### Program Output:
-```
-********** TESTS **********
-CTTTCGCAATGATAC + GAAAGCGTTACTATG => CTTTCGCAATGATACGAAAGCGTTACTATG
-DNA to RNA of CTTTCGCAATGATAC: ('CTTTCGCAATGATAC', 'GUAUCAUUGCGAAAG')
-DNA to RNA of GAAAGCGTTACTATG: ('GAAAGCGTTACTATG', 'CAUAGUAACGCUUUC')
-RNA to DNA of UAGGCCAUCCGUAAC: ('UAGGCCAUCCGUAAC', 'GTTACGGATGGCCTA')
-DNA to RNA of CTTTCGCAAZZZZZZ (with errors): ('CTTTCGCAAZZZZZZ', 'NNNNNNUUGCGAAAG')
-Nuclease split on CTTTCGCAATGATAC: ('CTT', 'TCGCAATGATAC')
-Nuclease split on GAAAGCGTTACTATG: ('GAA', 'AGCGTTACTATG')
-```
