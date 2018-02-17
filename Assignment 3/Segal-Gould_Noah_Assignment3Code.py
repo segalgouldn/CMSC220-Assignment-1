@@ -148,7 +148,6 @@ def main():
     print("Example use of longestRF method on " + sequence_2.filename + ":")
     print(sequence_2.longestRF())
 
-
     # Show the statistics for the third file
     print("Statistics for " + sequence_3.filename + ":")
     print(sequence_3.nucleotide_totals)
@@ -161,7 +160,7 @@ def main():
     # Test translation based on user input
     print("Example use of translateDNA method on " + sequence_3.filename + ":")
     result = sequence_3.translateDNA()
-
+    
     # Show all potential start and stop codon matches for all reading frames
     print("Example use of predictRF method on " + sequence_3.filename + ":")
     print(sequence_3.predictRF())
