@@ -5,69 +5,69 @@ The fourth assignment for CMSC 220: Bioinformatics, which involves using Python 
 ```
 K-Mers for Vibrio Cholerae, with reading frames:
 ------------------------------------------------
-1|3|ATC         GAT         TCT         TTG
- |6|GATCAA      ATCAAT      CGTAAG      CTTCTA
+1|3|TGA         GAT         CTT         CTC
+ |6|GATCAA      TGGCCA      ATCAAT      CGTAAG
  |9|ATCAATGAT   CAACGTAAG   CTTCTAAGC   ATGATCAAG
  ================================================
-2|3|TGA         CTC         CTT         TCA
- |6|TGACAT      CTCTTG      TCAATG      ATCAAC
+2|3|ATC         GAT         CAT         TCT
+ |6|ATCAAG      ACTTGT      CATGAT      TCAATG
  |9|TCAATGATC   AACGTAAGC   TTCTAAGCA   TGATCAAGG
  ================================================
-3|3|TGA         GAT         ATC         TTT
- |6|GACATC      TACTCT      TGGCCA      AATGAA
+3|3|TGA         TCA         ATG         CAA
+ |6|TGATCA      CAATGA      TCAACG      TAAGCT
  |9|CAATGATCA   ACGTAAGCT   TCTAAGCAT   GATCAAGGT
  ================================================
-4|3|TAG         CTA         AGA         AAC
- |6|CTAGTT      GCAAAG      CTAGTA      CGAGAA
- |9|GAACTAGTA   CGACGACGA      CTAGTT   CCTTCTTA
+4|3|ACT         CTA         GAA         GAG
+ |6|CTAGTT      ACCGGT      GCAAAG      CTAGTA
+ |9|GTAGCAAAG   CGAGAACTA   GTTCGACGA   TTCTTACTA
  ================================================
-5|3|ACT         AAA         CTA         TAG
- |6|TTACTT      ATGAGA      ACCGGT      CTGTAG
- |9|ACTAGTAGC   ACGACGAGA    CTAGTTCG   TTCTTA
+5|3|AGT         ACT         TAC         AAA
+ |6|ACTAGT      AGTAGC      AGAACT      ACGACG
+ |9|AGAACTAGT   TCGACGACG   CTTACTAGT   AAATGCCTT
  ================================================
-6|3|ACT         GAG         GAA         TAG
- |6|GAGAAC      ACTGTA      TAGTAG      GACGAC
- |9|AACTAGTAG   GACGACGAG     CTAGTTC   CTTCTTA
+6|3|TAG         CTA         GTA         AGA
+ |6|TAGTTC      GTACTA      TGAACA      TAGTAG
+ |9|GAGAACTAG   TTCGACGAC   TCTTACTAG   AAAATGCCT
  ================================================
 
 K-Mers for Vibrio Cholerae, without reading frames:
 ---------------------------------------------------
 1|3|TGA         ATC         GAT         TCA
  |6|TGATCA      ATGATC      GATCAA      ATCAAG
- |9|CTCTTGATC   TCTTGATCA   CTTGATCAT   AAGCATGAT
+ |9|ATGATCAAG   CTCTTGATC   TCTTGATCA   CTTGATCAT
  ================================================
 
 K-Mers for Thermotoga Petrophila, with reading frames:
 ------------------------------------------------------
-1|3|AAA         ATT         TAC         ATA
- |6|TGGTAG      AAACAA      CTTACC      AACTCT
+1|3|AAC         TTT         AAA         TAT
+ |6|AGGTTT      GGTGGT      CCTACC      GTGGTA
  |9|AACTCTATA   CCTCCTTTT   TGTCGAATT   TGTGTGATT
  ================================================
-2|3|TTT         ACC         TTA         GAA
- |6|GGTAGG      ACTCTA      TACCTC      CTTTTT
+2|3|ATT         TAC         ACT         TTT
+ |6|GTGGTA      AATTGA      ACTTAC      CTACCA
  |9|ACTCTATAC   CTCCTTTTT   GTCGAATTT   GTGTGATTT
  ================================================
-3|3|AAA         TTG         AAT         TAT
- |6|GTAGGT      TTCAGA      TACCAC      CTCTAT
+3|3|AAA         ACC         ATT         TTT
+ |6|TGGTAG      CTGAAA      CTTACC      ATTTCA
  |9|CTCTATACC   TCCTTTTTG   TCGAATTTG   TGTGATTTA
  ================================================
-4|3|TTT         TAA         ATG         TAT
- |6|GAATGG      TTTGTT      ACCATC      CACCAT
- |9|CTCCACCAT   TAGACTTTT   CATATTAAC   TATTATCGT
+4|3|TTT         AAA         TTG         CAT
+ |6|TCCAAA      CACCAT      GGATGG      CCACCA
+ |9|TTTCTCCAC   AACTAGACT   CGTCATATT   GATTATTAT
  ================================================
-5|3|TTT         TTA         AAC         TGA
- |6|ATGGTG      AAGTCT      CATCCA      CCATTT
- |9|CCACCATTT   GACTTTTCT   TATTAACTA   TTATCGTCA
+5|3|TTT         TGG         TAA         AAA
+ |6|ACCATC      GACTTT      ATGGTG      TAAAGT
+ |9|TCTCCACCA   CTAGACTTT   TCATATTAA   TTATTATCG
  ================================================
-6|3|AAA         TGG         AAT         CTT
- |6|CCATCC      ACCATT      TTCTCC      AGACTT
- |9|TCCACCATT   AGACTTTTC   ATATTAACT   ATTATCGTC
+6|3|TAA         ATG         TGA         AAA
+ |6|ACCATT      TTAACT      GATGGT      TGAATG
+ |9|TTCTCCACC   ACTAGACTT   GTCATATTA   ATTATTATC
  ================================================
 
 K-Mers for Thermotoga Petrophila, without reading frames:
 ---------------------------------------------------------
 1|3|AAA         TTT         ATT         ACC
  |6|TACCAC      ACCTAC      CCTACC      CTACCA
- |9|ACCTACCAC   AAACCTACC   AACCTACCA   CCTACCACC
+ |9|ACCTACCAC   TGGTAGGTT   GGTAGGTTT   AAACCTACC
  ================================================
 ```

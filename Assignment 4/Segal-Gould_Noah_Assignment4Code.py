@@ -11,7 +11,7 @@ from collections import Counter
 
 # Create a dictionary to keep track of k-mers of each size (3, 6, and 9) in each reading frame (1-6)
 def find_reading_frames_k_mers(sequence):
-    sequence = sequence.upper().replace("\n", "") # Capitalize nucleotides and remove newlines
+    sequence = sequence.upper().replace("\n", "").replace(" ", "") # Capitalize nucleotides and remove newlines and whitespace
     translation_table = str.maketrans("ATCG", "TAGC")
     return {1: {3: Counter(re.findall(".{3}", sequence)).most_common(4), 
                 6: Counter(re.findall(".{6}", sequence)).most_common(4), 
@@ -43,7 +43,7 @@ def find_k_mers(sequence, k):
 
 # Ignores the other 5 reading frames and puts the 3, 6, and 9-mers of just the first reading frame in a dictionary
 def find_non_reading_frames_k_mers(sequence):
-    sequence = sequence.upper().replace("\n", "") # Capitalize nucleotides and remove newlines
+    sequence = sequence.upper().replace("\n", "").replace(" ", "") # Capitalize nucleotides and remove newlines and whitespace
     results = {1: {}}
     for j in [3, 6, 9]:
         results[1][j] = Counter(find_k_mers(sequence, j)).most_common(4)
