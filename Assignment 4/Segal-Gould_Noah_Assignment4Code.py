@@ -1,9 +1,11 @@
 
 # Noah Segal-Gould <ns2349@bard.edu>
-# 2018-02-27
+# Aaron Krapf <ak1791@bard.edu>
+# Zoe Terhune <zt0609@bard.edu>
+# 2018-02-28
 # CMSC 220
-# Origin of Replication Exercise
-# My code is based in part on work done collectively in class as well as code provided on Wikipedia and the course Moodle 2.
+# Lab 4: Origin of Replication Exercise
+# I worked on this code in a group. It is partially based on code found on the English language Wikipedia article for K-Mers.
 
 # Import libraries for managing regular expressions and counting k-mers
 import re
