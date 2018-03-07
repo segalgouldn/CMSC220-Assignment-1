@@ -1,1 +1,2 @@
-### CMSC220 Assignments
+### CMSC 220 Assignments
+This repository has a license.
