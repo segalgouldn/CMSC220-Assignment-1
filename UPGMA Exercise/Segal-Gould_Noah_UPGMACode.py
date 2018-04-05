@@ -5,7 +5,6 @@
 # For the example in the original code that was on Moodle 2,
 # the resultant tree is different now that we've implemented UPGMA.
 
-import numpy as np
 
 STANDARD_GENETIC_CODE = {
     'UUU': 'Phe', 'UUC': 'Phe', 'UCU': 'Ser', 'UCC': 'Ser',
