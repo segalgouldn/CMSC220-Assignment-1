@@ -3,7 +3,7 @@
 # The three of us collaborated on this assignment.
 # We made use of the textbook as well as code on Moodle 2.
 # For the example in the original code that was on Moodle 2,
-# The resultant tree is different now that we've implemented UPGMA.
+# the resultant tree is different now that we've implemented UPGMA.
 
 import numpy as np
 
@@ -384,9 +384,10 @@ def neighbourJoinTree(distMatrix):
 
 
 def show_result(result):
+    to_return = ""
     for i in result:
-        print("-> Combined: ({0}, {1})".format(i[0], i[1]))
-    print()
+        to_return += "This step combines: ({0}, {1})\n".format(i[0], i[1])
+    return to_return
 
 
 def get_min_value(matrix):
@@ -404,29 +405,20 @@ def get_min_value(matrix):
 def show_matrix(labels, matrix):
     row_length = len(matrix[0])
     row_string = " " * 25 + " ".join("{:>24}" for _ in range(row_length)).format(*labels)
-    print("{0}\n{1}".format(row_string, "-" * len(row_string)))
+    to_return = ""
+    to_return += "{0}\n{1}".format(row_string, "-" * len(row_string))
     for label, row in zip(labels, matrix):
-        print("{:>25}{}".format(label, " ".join("{:>24}" for _ in range(row_length)).format(*row)))
-    print("-" * len(row_string) + "\n")
+        to_return += "\n" + "{:>25}{}".format(label, " ".join("{:>24}" for _ in range(row_length)).format(*row))
+    to_return += "\n" + "-" * len(row_string) + "\n"
+    return to_return
 
-def run_tests():
-    seqs = ['QPVHPFSRPAPVVIILIILCVMAGVIGTILLISYGIRLLIK',
-            'QLVHRFTVPAPVVIILIILCVMAGIIGTILLISYTIRRLIK',
-            'QLAHHFSEPEITLIIFGVMAGVIGTILLISYGIRRLIKKSPSDVKPLPSPD',
-            'QLVHEFSELVIALIIFGVMAGVIGTILFISYGSRRLIKKSESDVQPLPPPD',
-            'MLEHEFSAPVAILIILGVMAGIIGIILLISYSIGQIIKKRSVDIQPPEDED',
-            'PIQHDFPALVMILIILGVMAGIIGTILLISYCISRMTKKSSVDIQSPEGGD',
-            'QLVHIFSEPVIIGIIYAVMLGIIITILSIAFCIGQLTKKSSLPAQVASPED',
-            'LAHDFSQPVITVIILGVMAGIIGIILLLAYVSRRLRKRPPADVP',
-            'SYHQDFSHAEITGIIFAVMAGLLLIIFLIAYLIRRMIKKPLPVPKPQDSPD']
-
-    matrix = getDistanceMatrix(seqs, BLOSUM62)
-
+def upgma(matrix, show_steps=False):
     result = []
     length = len(matrix)
     labels = [str(i) for i in range(length)]
-    print("Start:")
-    show_matrix(labels, matrix)
+    to_return = ""
+    to_return += "Start:\n"
+    to_return += show_matrix(labels, matrix)
     step = 1
     while length > 2:
         value, pos = get_min_value(matrix)
@@ -439,19 +431,56 @@ def run_tests():
             row.pop(pos[1])
         result.append((labels[pos[0]], labels[pos[1]]))
         insert = labels[pos[0]], labels[pos[1]]
-        if len(insert[0]) == 1 and len(insert[1]) == 1:
-            labels[pos[0]] = "{0}{1}".format(insert[0], insert[1])
-        else:
-            labels[pos[0]] = "({0}, {1})".format(insert[0], insert[1])
+        # Commented: intended to make reading easier
+        # if len(insert[0]) == 1 and len(insert[1]) == 1:
+        #     labels[pos[0]] = "{0}{1}".format(insert[0], insert[1])
+        # else:
+        #     labels[pos[0]] = "({0}, {1})".format(insert[0], insert[1])
+        labels[pos[0]] = "({0}, {1})".format(insert[0], insert[1])
         labels.pop(pos[1])
-        print("Step: {}".format(step))
-        show_matrix(labels, matrix)
+        to_return += "\nStep: {}\n".format(step)
+        to_return += show_matrix(labels, matrix)
         step += 1
-        show_result(result)
+        to_return += "\n" + show_result(result)
         result = []
         length -= 1
-    print("Result should be: {}".format("(((7, (01)), (45)), ((23), (68))"))
+    if show_steps:
+        print(to_return)
+    return to_return, eval("({})".format(to_return.split("\n")[-8].replace(" ", "").replace(")(", "),(")))
+        
+        
+def main():
+    seqs = ['QPVHPFSRPAPVVIILIILCVMAGVIGTILLISYGIRLLIK',
+            'QLVHRFTVPAPVVIILIILCVMAGIIGTILLISYTIRRLIK',
+            'QLAHHFSEPEITLIIFGVMAGVIGTILLISYGIRRLIKKSPSDVKPLPSPD',
+            'QLVHEFSELVIALIIFGVMAGVIGTILFISYGSRRLIKKSESDVQPLPPPD',
+            'MLEHEFSAPVAILIILGVMAGIIGIILLISYSIGQIIKKRSVDIQPPEDED',
+            'PIQHDFPALVMILIILGVMAGIIGTILLISYCISRMTKKSSVDIQSPEGGD',
+            'QLVHIFSEPVIIGIIYAVMLGIIITILSIAFCIGQLTKKSSLPAQVASPED',
+            'LAHDFSQPVITVIILGVMAGIIGIILLLAYVSRRLRKRPPADVP',
+            'SYHQDFSHAEITGIIFAVMAGLLLIIFLIAYLIRRMIKKPLPVPKPQDSPD']
+
+    matrix_old = getDistanceMatrix(seqs, BLOSUM62)
+    matrix_new = [[0, 3, 4, 3], [3, 0, 4, 5], [4, 4, 0, 2], [3, 5, 2, 0]]
     
+    upgma_test_1_output, upgma_test_1_tree  = upgma(matrix_old, False)
+    # print(upgma_test_1_output)
+    print("Test result: {}".format(upgma_test_1_tree))
+    print("According to the Moodle 2 example, the tree was previously: {}".format("(((7, (0, 1)), (4, 5)), ((2, 3), (6, 8))"))
+    
+    upgma_test_2_output, upgma_test_2_tree  = upgma(matrix_new, False)
+    print(upgma_test_2_output)
+    print("Test result: {}".format(upgma_test_2_tree))
+    print("According to the in-class example, the tree should be: {}".format("((0, 1), (2, 3))"))
+    
+    # Old Intended Ouput:
+    # (((7, (0, 1)), (4, 5)), ((2, 3), (6, 8))
+    
+    # New Test:
+    # [[0, 3, 4, 5], [3, 0, 4, 5], [4, 4, 0, 2], [0, 3, 5, 2, 0]]
+    
+    # New Intended Output:
+    # ((0, 1), (2, 3))
 if __name__ == "__main__":
-    run_tests()
+    main()
     
