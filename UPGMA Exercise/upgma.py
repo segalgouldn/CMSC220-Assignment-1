@@ -2,6 +2,8 @@
 # 4/4/18
 # The three of us collaborated on this assignment.
 # We made use of the textbook as well as code on Moodle 2.
+# For the example in the original code that was on Moodle 2,
+# The resultant tree is different now that we've implemented UPGMA.
 
 import numpy as np
 
@@ -407,8 +409,7 @@ def show_matrix(labels, matrix):
         print("{:>25}{}".format(label, " ".join("{:>24}" for _ in range(row_length)).format(*row)))
     print("-" * len(row_string) + "\n")
 
-
-if __name__ == '__main__':
+def run_tests():
     seqs = ['QPVHPFSRPAPVVIILIILCVMAGVIGTILLISYGIRLLIK',
             'QLVHRFTVPAPVVIILIILCVMAGIIGTILLISYTIRRLIK',
             'QLAHHFSEPEITLIIFGVMAGVIGTILLISYGIRRLIKKSPSDVKPLPSPD',
@@ -450,3 +451,7 @@ if __name__ == '__main__':
         result = []
         length -= 1
     print("Result should be: {}".format("(((7, (01)), (45)), ((23), (68))"))
+    
+if __name__ == "__main__":
+    run_tests()
+    
